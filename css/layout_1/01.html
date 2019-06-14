@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>页面布局之三栏中间自适应布局</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .container>div {
+      min-height: 100px;
+    }
+
+    .left {
+      width: 300px;
+      background: lightgoldenrodyellow;
+    }
+
+    .center {
+      background: gray;
+      /* 用来测试高度自适应, 发现只有flex和table */
+      /* height: 600px; */
+    }
+
+    .right {
+      width: 300px;
+      background: pink;
+    }
+    .container {
+      overflow: hidden;
+    }
+    /* 方案一: float + margin */
+    .layout.float .left {
+      float: left;
+    }
+
+    .layout.float .right {
+      float: right;
+    }
+
+    .layout.float .center {
+      margin-left: 300px;
+      margin-right: 300px;
+    }
+
+    /* 方案二: position + margin */
+    .layout.position .container {
+      position: relative;
+    }
+
+    .layout.position .center {
+      margin: 0 300px;
+    }
+
+    .layout.position .left {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .layout.position .right {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    /* 方案三: flex */
+    .layout.flex .container {
+      display: flex;
+    }
+
+    .layout.flex .center {
+      flex: 1;
+    }
+
+    /* 方案四: table */
+    .layout.table .container {
+      width: 100%;
+      display: table;
+    }
+
+    .layout.table .left,
+    .layout.table .right,
+    .layout.table .center {
+      display: table-cell;
+    }
+
+    /* 方案五: Grid */
+    .layout.grid .container {
+      display: grid;
+      width: 100%;
+      grid-template-columns: 300px auto 300px;
+      grid-template-rows: 100px;
+    }
+
+    /* 方案六: 圣杯布局 */
+    .layout.cup .container>div {
+      float: left;
+    }
+    .layout.cup .center {
+      box-sizing: border-box;  /* 不设比较复杂 */
+      width: 100%;
+      padding: 0 300px;
+    }
+    .layout.cup .left {
+      margin-left: -100%;
+    }
+    .layout.cup .right {
+      margin-left: -300px;
+    }
+    /* 方案六2: 圣杯布局2 */
+    .layout.cup2 .container {
+      padding-left:300px;
+      padding-right:300px;
+    }
+    .layout.cup2 .container>div {
+      float: left;
+    }
+    .layout.cup2 .center {
+      width: 100%;
+    }
+    .layout.cup2 .left {
+      margin-left: -100%;
+      position: relative;
+      right: 300px;
+    }
+    .layout.cup2 .right {
+      margin-right: -300px;
+    }
+    /* 方案七: 双飞翼布局 */
+    .layout.fly .center {
+      width: 100%;
+    }
+    .layout.fly .col {
+      float: left;
+      min-height: 100px;
+    }
+    .layout.fly .inner {
+      margin-left: 300px;
+      margin-right: 300px;
+    }
+    .layout.fly .left {
+      margin-left: -100%;
+    }
+    .layout.fly .right {
+      margin-left: -300px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- 方案一: float + margin -->
+  <section class="layout float">
+    <article class="container">
+      <div class="left">左侧</div>
+      <div class="right">右侧</div>
+      <div class="center">
+        <h1>方案一: float + margin</h1>
+        中间部分
+      </div>
+    </article>
+  </section>
+  <div>------我是分隔符------</div>
+  <!-- 方案二: position + margin-->
+  <section class="layout position">
+    <article class="container">
+      <div class="left">左侧</div>
+      <div class="center">
+        <h1>方案二: position + margin</h1>
+        中间部分
+      </div>
+      <div class="right">右侧</div>
+    </article>
+  </section>
+  <div>------我是分隔符------</div>
+  <!-- 方案三: flex -->
+  <section class="layout flex">
+    <article class="container">
+      <div class="left">左侧</div>
+      <div class="center">
+        <h1>方案三: flex</h1>
+        中间部分
+      </div>
+      <div class="right">右侧</div>
+    </article>
+  </section>
+  <div>------我是分隔符------</div>
+  <!-- 方案四: table布局 -->
+  <section class="layout table">
+    <article class="container">
+      <div class="left">左侧</div>
+      <div class="center">
+        <h1>方案四: table布局</h1>
+        中间部分
+      </div>
+      <div class="right">右侧</div>
+    </article>
+  </section>
+  <div>------我是分隔符------</div>
+  <!-- 方案五: Grid布局 -->
+  <section class="layout grid">
+    <article class="container">
+      <div class="left">左侧</div>
+      <div class="center">
+        <h1>方案五: Grid布局</h1>
+        中间部分
+      </div>
+      <div class="right">右侧</div>
+    </article>
+  </section>
+  <div>------我是分隔符------</div>
+  <!-- 方案六: 圣杯布局 -->
+  <section class="layout cup">
+    <article class="container">
+      <div class="center">
+        <h1>方案六: 圣杯布局</h1>
+        中间部分
+      </div>
+      <div class="left">左侧</div>
+      <div class="right">右侧</div>
+    </article>
+  </section>
+  <div>------我是分隔符------</div>
+  <!-- 方案六-2: 圣杯布局2 -->
+  <!-- 问题: 页面最小宽度大 -->
+  <section class="layout cup2">
+    <article class="container">
+      <div class="center">
+        <h1>方案六-2: 圣杯布局2</h1>
+        中间部分
+      </div>
+      <div class="left">左侧</div>
+      <div class="right">右侧</div>
+    </article>
+  </section>
+  <div>------我是分隔符------</div>
+  <!-- 方案七: 双飞翼布局 -->
+  <section class="layout fly">
+    <div class="center col">
+      <div class="inner">
+          方案七: 双飞翼布局
+      </div>
+    </div>
+    <div class="left col">左侧</div>
+    <div class="right col">右侧</div>
+  </section>
+  <div>------我是分隔符------</div>
+</body>
+
+</html>
