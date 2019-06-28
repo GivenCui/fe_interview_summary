@@ -1,0 +1,130 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+.auto {
+  width: 80%;
+  margin: 10px auto;
+}
+.container {
+  height: 100px;
+  display: grid;
+  background: #80deea;
+  grid-template-columns: 3fr repeat(7, 1fr);
+  grid-column-gap: 10px;
+}
+.container .item {
+  background: #ff80ab;
+  opacity: 0.5;
+  text-align: center;
+  line-height: 100px;
+}
+.container1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 50px 100px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+.container1 > div {
+  background: #ffcc80;
+  text-align: center;
+}
+.container2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  & > div {
+    height: 100px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    background: #008000;
+  }
+}
+.container21 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  & > div {
+    height: 100px;
+    grid-column: 2/3;  // 注意: 这里需要设置 less的配置 math: 'strict' 否则 2/3 => 0.6666
+    background: #008000;
+  }
+}
+.container3 {
+  display: grid;
+  grid-template-columns: [c1-start] 1fr [c2-start] 1fr [c3-start] 1fr [c4-end];
+}
+.container3 > div {
+  grid-column-start: c1-start;
+  grid-column-end: c3-start;
+  background: #ff6e40;
+}
+.container4 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 100px;
+  & > div {
+    border: 2px solid #ffa94d;
+    border-radius: 5px;
+    background-color: #ffd8a8;
+  }
+}
+
+.container5 {
+  border: 2px solid #f76707;
+  border-radius: 5px;
+  background-color: #fff4e6;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 100px 100px;
+  grid-template-areas:
+    'a b b'
+    'a b b';
+  & > div {
+    border: 2px solid #ffa94d;
+    border-radius: 5px;
+    background-color: #ffd8a8;
+    padding: 1em;
+    color: #d9480f;
+  }
+  .item1 {
+    grid-area: a;
+  }
+  .item2 {
+    grid-area: b;
+  }
+}
+
+.container6 {
+  display: grid;
+  grid: repeat(2, 1fr) / auto-flow;
+  grid-gap: 10px;
+  & > div {
+    background-color: #8ca0ff;
+    height: 50px;
+  }
+}
+
+.container7 {
+  display: grid;
+  grid: auto-flow / repeat(2, 1fr);
+  grid-gap: 10px;
+  & > div {
+    background-color: #8ca0ff;
+    height: 50px;
+  }
+}
+
+.container8 {
+  display: grid;
+  grid: repeat(2, 1fr) / auto-flow 100px;
+  grid-gap: 10px;
+  & > div {
+    background-color: #8ca0ff;
+    height: 50px;
+  }
+}

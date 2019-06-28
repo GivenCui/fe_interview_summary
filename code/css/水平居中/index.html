@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>水平居中</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      .box {
+        height: 100px;
+        background: lightgreen;
+        margin-bottom: 20px;
+      }
+      .inner {
+        height: 50px;
+        background: lightblue;
+      }
+      .content {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <style>
+      .box1 {
+        text-align: center;
+      }
+      .inner1 {
+        display: inline-block;
+      }
+    </style>
+    <section class="box box1">
+      <div class="inner inner1">
+        <div class="content">水平居中1</div>
+      </div>
+    </section>
+    <style>
+      .inner2 {
+        width: 200px;
+        margin: 0 auto;
+      }
+    </style>
+    <section class="box">
+      <div class="inner inner2">
+        <div class="content">水平居中2</div>
+      </div>
+    </section>
+    <style>
+      .box3 {
+        position: relative;
+      }
+      .inner3 {
+        position: absolute;
+        width: 200px;
+        left: 50%;
+        margin-left: -100px;
+      }
+    </style>
+    <section class="box box3">
+      <div class="inner inner3">
+        <div class="content">水平居中3</div>
+      </div>
+    </section>
+    <style>
+      .box4 {
+        position: relative;
+      }
+      .inner4 {
+        position: absolute;
+        width: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+    <section class="box box4">
+      <div class="inner inner4">
+        <div class="content">水平居中4</div>
+      </div>
+    </section>
+    <style>
+      .box5 {
+        display: flex;
+        justify-content: space-around;
+      }
+      .inner5 {
+        width: 200px;
+      }
+    </style>
+    <section class="box box5">
+      <div class="inner inner5">
+        <div class="content">水平居中5</div>
+      </div>
+    </section>
+  </body>
+</html>

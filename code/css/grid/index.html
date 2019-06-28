@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>grid布局</title>
+    <link rel="stylesheet/less" type="text/css" href="index.less" />
+    <script>
+      less = { env: 'development', math: 'strict' }
+    </script>
+    <script src="https://cdn.bootcss.com/less.js/3.9.0/less.js"></script>
+    <script>
+      less.watch()
+    </script>
+  </head>
+  <body>
+    <h3>一行多列</h3>
+    <div class="container auto">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+    </div>
+    <h3>2行3列的布局放5个item</h3>
+    <div class="container1 auto">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+    </div>
+    <h3>1行3列放1个item (居中)</h3>
+    <div class="container2 auto">
+      <div>1</div>
+    </div>
+    <h3>1行3列放1个item (居中) grid-column-start: 2; grid-column-end: 3;简写 grid-column: 2/3;</h3>
+    <div class="container21 auto">
+      <div>1</div>
+    </div>
+    <h3>1行3列放1个item (给lines命名)</h3>
+    <div class="container3 auto">
+      <div>1</div>
+    </div>
+    <h3>行数自适应</h3>
+    <div class="container4 auto">
+      <div>One</div>
+      <div>Two</div>
+      <div>Three</div>
+      <div>Four</div>
+      <div>Five</div>
+    </div>
+    <h3>grid area</h3>
+    <div class="container5 auto">
+      <div class="item1">Item</div>
+      <div class="item2">Item</div>
+    </div>
+    <h3>简写: grid: repeat(2, 1fr) / auto-flow;</h3>
+    <div class="container6 auto">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </div>
+    <h3>简写: grid: auto-flow / repeat(2, 1fr);</h3>
+    <div class="container7 auto">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </div>
+    <h3>简写: grid: repeat(2, 1fr) / auto-flow 100px;</h3>
+    <div class="container8 auto">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </div>
+  </body>
+</html>
